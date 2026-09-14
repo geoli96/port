@@ -320,6 +320,7 @@ export const Home = () => {
                                 {puzzleImages.map((item, index) => {
                                     return (
                                         <div
+                                            key={index}
                                             className="imageindicator"
                                             style={{
                                                 backgroundColor:
@@ -363,6 +364,7 @@ export const Home = () => {
                                 {puzzleImages.map((obj, index) => {
                                     return (
                                         <div
+                                            key={index}
                                             className="slidename"
                                             style={{
                                                 display: currentImagePuzzle === index ? "inherit" : "none",
