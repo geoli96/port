@@ -136,6 +136,24 @@ export const Home = () => {
                 >
                     <div
                         onClick={() => {
+                            navigateTo(worksRef, true);
+                            setMenuVisible(false);
+                        }}
+                        className="link"
+                    >
+                        Work experience
+                    </div>
+                    <div
+                        onClick={() => {
+                            navigateTo(experiencesRef, true);
+                            setMenuVisible(false);
+                        }}
+                        className="link"
+                    >
+                        Other experience
+                    </div>
+                    <div
+                        onClick={() => {
                             navigateTo(projectsRef, true);
                             setMenuVisible(false);
                         }}
