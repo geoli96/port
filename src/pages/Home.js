@@ -172,8 +172,7 @@ export const Home = () => {
                 <div className="project">
                     <div className="infosection about">
                         <div style={{ fontSize: "18px" }}>
-                            I'm currently finishing my last year as a student at Linköping university pursuing a
-                            Master's of Science degree in Computer Science. I have great interest in fullstack
+                            I have a Bachelor of Science, BSc, degree in Media technology Engineering at Linköping university. I have great interest in fullstack
                             development, web design and tech in general. I love learning so I am always on the hunt to
                             find new things to learn to expand my technical knowledge!
                         </div>
@@ -216,6 +215,17 @@ export const Home = () => {
                     </div>
                 </div>
                 <div ref={aboutRef} className="sectiontitle">
+                    <h1>Work experience</h1>
+                </div>
+                <div className="project">
+                    <div className="infosection about">
+                        <div style={{ fontSize: "18px" }}>
+                            <Jobs />
+                        </div>
+                        <br />
+                    </div>
+                </div>
+                <div ref={aboutRef} className="sectiontitle">
                     <h1>Experiences</h1>
                 </div>
                 <div className="project">
@@ -231,104 +241,7 @@ export const Home = () => {
                 </div>
                 <div className="project">
                     <div className="infosection">
-                        <div style={{ fontWeight: "600", fontSize: "20px" }}>01 / Dating web app</div>
-                        <br />
-                        <div style={{ fontSize: "18px" }}>
-                            A tinder like dating web app for gamers and streamers. Register and upload up to 4 images
-                            and then start swiping to find potential matches within your chosen search distance. You can
-                            add what games you stream or play among a selection of currently popular games. If you match
-                            with someone you can message him or her. User information, matches and messages are stored
-                            in a MongoDB database and images are stored on Firebase storage.
-                        </div>
-
-                        <div style={{ fontWeight: "400", paddingTop: "30px", fontSize: "18px" }}>
-                            <span>Used technologies:</span>{" "}
-                            <span style={{ fontWeight: "600" }}>React, Node.js, MongoDB, Express.js and Firebase</span>{" "}
-                        </div>
-                        <br />
-
-                        <div style={{ display: "flex", gap: "20px", paddingTop: "20px" }}>
-                            <div style={{ fontWeight: "600", fontSize: "16px", cursor: "pointer" }}>Code</div>
-                            <div style={{ fontWeight: "600", fontSize: "16px", cursor: "pointer" }}>Demo</div>
-                            <div style={{ fontWeight: "600", fontSize: "16px" }}>(Coming soon)</div>
-                        </div>
-                    </div>
-                    <div className="rightside">
-                        <div className="image">
-                            <div
-                                style={{
-                                    position: "absolute",
-                                    display: "flex",
-                                    width: "70%",
-                                    gap: "10px",
-                                    justifyContent: "center",
-                                    transform: "translate(0, calc( 20vh - 6px))",
-                                }}
-                            >
-                                {dateImages.map((item, index) => {
-                                    return (
-                                        <div
-                                            className="imageindicator"
-                                            style={{
-                                                backgroundColor:
-                                                    index === currentImageDate ? "rgb(0,0,0,0.7)" : "rgb(0,0,0,0.15)",
-                                            }}
-                                        />
-                                    );
-                                })}
-                            </div>
-                            <img
-                                alt="projectimg"
-                                className="projectimg"
-                                style={{ objectFit: "contain" }}
-                                src={dateImages[currentImageDate]}
-                            ></img>
-                            <div className="arrowcontainer">
-                                <div>
-                                    {currentImageDate > 0 ? (
-                                        <img
-                                            alt="arrow"
-                                            onClick={() => {
-                                                setCurrentImageDate(currentImageDate - 1);
-                                            }}
-                                            className="arrow"
-                                            src={leftarrow}
-                                        ></img>
-                                    ) : null}
-                                </div>
-                                <div>
-                                    {currentImageDate < dateImages.length - 1 ? (
-                                        <img
-                                            alt="arrow"
-                                            onClick={() => {
-                                                setCurrentImageDate(currentImageDate + 1);
-                                            }}
-                                            className="arrow2"
-                                            src={leftarrow}
-                                        ></img>
-                                    ) : null}
-                                </div>
-                                {dateImages.map((obj, index) => {
-                                    return (
-                                        <div
-                                            className="slidename"
-                                            style={{
-                                                display: currentImageDate === index ? "inherit" : "none",
-                                                position: "absolute",
-                                                opacity: "0.9",
-                                            }}
-                                        >
-                                            {index + 1}. {index === 0 ? <>Registration</> : <>Match simulation </>}{" "}
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="project">
-                    <div className="infosection">
-                        <div style={{ fontWeight: "600", fontSize: "20px" }}>02 / 8 Puzzle Game</div>
+                        <div style={{ fontWeight: "600", fontSize: "20px" }}>01 / 8 Puzzle Game</div>
                         <br />
                         <div style={{ fontSize: "18px" }}>
                             A 8 puzzle game where the user gets a randomized puzzle and can solve it by moving the
