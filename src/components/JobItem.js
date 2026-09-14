@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function JobItem({job}) {
   const {title, date, desc} = job
   return (

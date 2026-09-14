@@ -1,14 +1,7 @@
-import React,{useState, useRef} from 'react'
+import {useState} from 'react'
 import JobItem from './JobItem'
 
-const places = [{company: "LiTHehack", title:"Programming tutor @ LiTHehack", date:"May 2021 - Present",desc:[`Helped other Linkoping university students with programming related labs and projects.
- The technologies and languages tutored in were C++, React and JavaScript.`,`
-Together with the other members of LiTHehack organized events and held talks 
-related to programming and software development to inspire other students to program more and help them become better software developers.`]},
- {company: "NAFFI", title:"Webmaster @ NAFFI",date:"Sept 2020 - June 2021", desc:[`Was responsible for maintaining and updating NAFFI's website and MySQL user database.`,`Made changes to NAFFI's board and other members roles in the database to allow them to access to admin control panel and activity registration on NAFFI's website.`]}]
-
-export default function Jobs() {
-
+export default function Jobs({places}) {
   const [selected,setSelected] = useState(0)
 
   return (

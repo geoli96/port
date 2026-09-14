@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import "./Home.css";
 import githublogo from "../assets/images/githublogo.png";
 import linkedinlogo from "../assets/images/linkedinlogo.png";
@@ -6,21 +6,27 @@ import leftarrow from "../assets/images/leftarrow.png";
 import puzzlemultiplayer from "../assets/images/puzzlemultiplayer.gif";
 import puzzleplay from "../assets/images/puzzleplay.gif";
 import puzzlesolver from "../assets/images/puzzlesolver.gif";
-import obdateregister from "../assets/images/obdateregister.gif";
-import obdatemessage from "../assets/images/obdatemessage.gif";
 import profilepic from "../assets/images/profilepic.jpg";
-import { Link } from "react-router-dom";
 import Jobs from "../components/Jobs";
 
-export const Home = () => {
-    const dateImages = [obdateregister, obdatemessage];
-    const [currentImageDate, setCurrentImageDate] = useState(0);
+const jobExperiences = [{company: "Upsales", title:"Fullstack Software engineer", date:"Aug 2022 - Present",desc:[`Prototyped and
+     implemented new features for Upsales' CRM web application which was done in React, Node.js and MySQL as the tech stack.`,
+    `Built a UI component library for use within different parts of the application like dashboards and analytics.`]}]
 
+const otherExperiences = [{company: "LiTHehack", title:"Programming tutor @ LiTHehack", date:"May 2021 - Present",desc:[`Helped other Linkoping university students with programming related labs and projects.
+ The technologies and languages tutored in were C++, React and JavaScript.`,`
+Together with the other members of LiTHehack organized events and held talks 
+related to programming and software development to inspire other students to program more and help them become better software developers.`]},
+ {company: "NAFFI", title:"Webmaster @ NAFFI",date:"Sept 2020 - June 2021", desc:[`Was responsible for maintaining and updating NAFFI's website and MySQL user database.`,`Made changes to NAFFI's board and other members roles in the database to allow them to access to admin control panel and activity registration on NAFFI's website.`]}]
+
+export const Home = () => {
     const puzzleImages = [puzzleplay, puzzlesolver, puzzlemultiplayer];
     const [currentImagePuzzle, setCurrentImagePuzzle] = useState(0);
 
     const [menuVisible, setMenuVisible] = useState(false);
 
+    const worksRef = useRef(null);
+    const experiencesRef = useRef(null);
     const projectsRef = useRef(null);
     const aboutRef = useRef(null);
     const contactRef = useRef(null);
@@ -39,7 +45,6 @@ export const Home = () => {
             }
         }
 
-        console.log(ref.current.offsetTop);
         if (ref !== null) {
             window.scrollTo({
                 top: ref.current.offsetTop,
@@ -57,21 +62,28 @@ export const Home = () => {
                 <div className="logo">GL</div>
                 <div className="links">
                     <div
-                        onClick={() => navigateTo(projectsRef)}
+                        onClick={() => navigateTo(aboutRef)}
                         style={{ textDecoration: "none", cursor: "pointer" }}
                         className="link"
                     >
                         About
                     </div>
                     <div
-                        onClick={() => navigateTo(projectsRef)}
+                        onClick={() => navigateTo(worksRef)}
                         style={{ textDecoration: "none", cursor: "pointer" }}
                         className="link"
                     >
-                        Experiences
+                        Work experience
                     </div>
                     <div
-                        onClick={() => navigateTo(aboutRef)}
+                        onClick={() => navigateTo(experiencesRef)}
+                        style={{ textDecoration: "none", cursor: "pointer" }}
+                        className="link"
+                    >
+                        Experience
+                    </div>
+                    <div
+                        onClick={() => navigateTo(projectsRef)}
                         style={{ textDecoration: "none", cursor: "pointer" }}
                         className="link"
                     >
@@ -214,24 +226,24 @@ export const Home = () => {
                         </div>
                     </div>
                 </div>
-                <div ref={aboutRef} className="sectiontitle">
+                <div ref={worksRef} className="sectiontitle">
                     <h1>Work experience</h1>
                 </div>
                 <div className="project">
                     <div className="infosection about">
                         <div style={{ fontSize: "18px" }}>
-                            <Jobs />
+                            <Jobs places={jobExperiences}/>
                         </div>
                         <br />
                     </div>
                 </div>
-                <div ref={aboutRef} className="sectiontitle">
-                    <h1>Experiences</h1>
+                <div ref={experiencesRef} className="sectiontitle">
+                    <h1>Other experiences</h1>
                 </div>
                 <div className="project">
                     <div className="infosection about">
                         <div style={{ fontSize: "18px" }}>
-                            <Jobs />
+                            <Jobs places={otherExperiences}/>
                         </div>
                         <br />
                     </div>
@@ -366,7 +378,7 @@ export const Home = () => {
                                 <div style={{ width: "22px", height: "auto" }}>
                                     <a
                                         style={{ textDecoration: "none", color: "inherit" }}
-                                        href="https://github.com/goshaaz"
+                                        href="https://github.com/geoli96"
                                     >
                                         <img
                                             alt="projectimg"
